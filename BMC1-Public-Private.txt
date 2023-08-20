@@ -1,0 +1,149 @@
+Author BMC1 
+08.19.23 11.00am
+
+BMC1 Accepts Donations for the "swetting of the research" in putting this "mess" together!
+If you like it and has a sense of worhtiness on your usage and better understangind how
+Algorithms work and their usage specially in the creation of "Keys, Secret Words" or
+anything of data value to you.
+Here it is my "Wallet Address" for ANY DONATIONS :
+THANKS
+
+BMC1-Donations
+
+Ethereum Address : (0xEBC538bd66DEcf79A086b6978AB0830613e99161)
+
+
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+Understanding Logarithms involved in the creation of Keys, PassCodes, Secret Words
+and Hash266 in convination of Cryptographic with Code examples below
+
+Using Python Programming Language
+
+Please NOTE:
+
+    That in a real-world scenario, you would need to implement additional 
+    security measures, error handling, and considerations to ensure the proper 
+    functioning and security of the key generation process. Additionally, 
+    the example below after installing the library required to run, uses the 
+    SECP256R1 elliptic curve, which is commonly used in practice, but there are 
+    other curves with varying security levels available, that would add more complexity.
+    BMC1 uses in the examples below:
+            The Elliptic Curve Digital Signature Algorithm (ECDSA) that is a widely used 
+            inside most cryptographic algorithms platforms
+
+DISCLAIMER:
+    PLEASE DO YOUR OWN INVESTIGATION REGARDING LOGARITHMS AND USAGES, HERE BELOW ARE VERY SIMPLISTIC
+    FORMS OF CODE AND INFORMATION THAT COULD BE DIFFERENT FROM WHAT YOU ARE LOOKING FOR, BMC1 USED
+    THE ECDSA ALGORITHM in a simplistic form just to learn it and explain its generation, usage, purposes
+    and why is the most widely accepted among the "big whales" like Bitcoin, Ethereum and many other ones
+    
+
+
+ECDASA:
+    The Elliptic Curve Digital Signature Algorithm (ECDSA) is a widely used cryptographic algorithm that provides a method
+    for generating digital signatures and verifying the authenticity of messages or transactions in a secure manner. 
+    
+    It is a key component of many cryptocurrencies, including Bitcoin and Ethereum, as well as various other security 
+    protocols.
+   
+    How elliptic curve key generation works using the cryptography library in Python. 
+    Note: REMEMBER that this is a simplified example for educational purposes and doesn't include all the necessary 
+    security measures that are part of the production and implementation would require a more complex forms for its
+    intended uses.
+
+
+/////////////////////////////////////////////// / C O D E / ///////////////////////////////////////////////////////
+Make sure you have the cryptography library installed in your Python environment 
+to run this code. You can install it using the following command:
+
+                        pip install cryptography
+
+ Here's a simplified example below of how elliptic curve key generation works using the cryptography library in Python. 
+ Note that this is a simplified example for educational purposes and doesn't include all the necessary security 
+ measures that a production implementation would require.
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#START OF CODE
+#Copy Paste from here on down for testing on your terminal-compiler of your usage
+
+# This script demonstrates elliptic curve key generation using the cryptography library.
+# The cryptography library is open-source and can be found at: https://cryptography.io/en/latest/
+
+#BMC1
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import ec
+
+# Generate private key
+private_key = ec.generate_private_key(ec.SECP256R1(), default_backend())
+
+# Get the corresponding public key
+public_key = private_key.public_key()
+
+# Print VIEW the private and public key in hexadecimal format
+private_key_hex = private_key.private_numbers().private_value.to_bytes(32, 'big').hex()
+public_key_hex = public_key.public_numbers().encode_point().hex()
+
+print("Private Key:", private_key_hex)
+print("Public Key:", public_key_hex)
+#END OF CODE for example above
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+NOW, if you want to reset the code after it runs does not have a "reset" to start again and re-generate
+the Public Keys along with tis Private Keys.
+
+Thus, you can add a control mechanism to allow the user to reset or restart the code after generating the keys. 
+One common way to do this is by using a loop that gives the user the option to restart the code or exit. 
+Here's an example of how you might implement this
+
+
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#START OF CODE
+#Copy Paste from here on down for testing on your terminal-compiler of your usage
+
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import ec
+
+def generate_keys():
+# Generate private key
+private_key = ec.generate_private_key(ec.SECP256R1(), default_backend())
+    
+# Get the corresponding public key
+public_key = private_key.public_key()
+    
+# Print private and public key in hexadecimal format
+private_key_hex = private_key.private_numbers().private_value.to_bytes(32, 'big').hex()
+public_key_hex = public_key.public_numbers().encode_point().hex()
+    
+print("Private Key:", private_key_hex)
+print("Public Key:", public_key_hex)
+
+while True:
+generate_keys()
+    
+restart = input("Do you want to generate keys again? (y/n): ")
+    if restart.lower() != 'y':
+      break
+
+#END OF CODE for example above
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+In this code, the generate_keys() function generates and displays the keys. 
+The loop at the bottom allows the user to repeatedly generate keys or exit the 
+program by entering 'y' or any other key, respectively.
+
+Please note that in a more sophisticated application, you might want to handle 
+input validation and other user interactions more robustly. Additionally, 
+you might want to include error handling for any unexpected issues that could
+arise during key generation
